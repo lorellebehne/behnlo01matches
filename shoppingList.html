@@ -1,0 +1,43 @@
+
+<html>
+	<head>
+		<title>Shopping List</title>
+	</head>
+	<body>
+		<input id="searchin" type="text"></input>
+		<button id="searchgo">Search</button>
+		<br/>
+		
+		<input id="item" type="text"></input>
+		<input id="qty" type="number" step="1" value="1"></input>
+		
+		<select id="stores" onchange="buildSections()">
+			<option value=""></option>
+			<option value="grocery">Grocery</option>
+			<option value="hardware">Hardware</option>
+			<option value="craft">Craft</option>
+			<option value="game">Game</option>
+		</select>
+		
+		<select id="sections">
+			<option value=""></option>
+		</select>
+		<select id="priority">
+			<option value=""></option>
+			<option value="high">High</option>
+			<option value="high">Medium</option>
+			<option value="high">Low</option>
+		</select>
+		<input id="price" type="number" step=".01" value="0"></input>
+		
+		<button id="add" onclick="addEntry()">Add</button>
+		
+		<br/>
+		
+		<table id="lst">
+			
+		</table>
+
+		<script src=shopping.js type=text/javascript></script>
+	</body>
+</html>
