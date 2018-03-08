@@ -11,7 +11,7 @@
 		<input id="item" type="text"></input>
 		<input id="qty" type="number" step="1" value="1"></input>
 		
-		<select id="stores" onchange="buildSections()">
+		<select id="stores" onchange="sectionUpdate()">
 			<option value=""></option>
 			<option value="grocery">Grocery</option>
 			<option value="hardware">Hardware</option>
@@ -30,7 +30,7 @@
 		</select>
 		<input id="price" type="number" step=".01" value="0"></input>
 		
-		<button id="add" onclick="addEntry()">Add</button>
+		<button id="add" onclick="addUpdate()">Add</button>
 		
 		<br/>
 		
@@ -38,6 +38,8 @@
 			
 		</table>
 
+		<script src=shoppingClasses.js type=text/javascript></script>
 		<script src=shopping.js type=text/javascript></script>
+		<script src=controller.js type=text/javascript></script>
 	</body>
 </html>
