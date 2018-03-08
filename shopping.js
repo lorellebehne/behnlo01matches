@@ -1,4 +1,5 @@
-function buildSections(){
+//THIS IS THE VIEW
+function buildSections(store){
 	sections = ["produce", "dairy", "deli", "canned goods", "baking"]
 	selectOps = document.getElementById("sections")
 	selectOps.innerHTML=""
@@ -9,36 +10,11 @@ function buildSections(){
 		selectOps.appendChild(op)
 	}
 }
-class Item{
-	constructor(name,qty,store,section,priority,price){
-		this.name=name
-		this.qty=qty
-		this.store=store
-		this.section=section
-		this.priority=priority
-		this.price=price
-		this.found=false
-	}
-}
-shopping = []
-function addEntry(){
-	list = document.getElementById("lst")
-		
-	name = document.getElementById("item").value
-	qty = document.getElementById("qty").value
-	store = document.getElementById("stores").value
-	section = document.getElementById("sections").value
-	priority = document.getElementById("priority").value
-	price = document.getElementById("price").value
 
-	let itm = new Item(name,qty,store,section,priority,price)
-	shopping.push(itm)
-	outTable()
-}
-function outTable(){
+function updateTable(list){
 	table = document.getElementById("lst")
 	table.innerHTML=""
-	for(item of shopping){
+	for(item of list){
 		//gathering items
 		name = item.name
 		qty = item.qty
@@ -47,11 +23,13 @@ function outTable(){
 		priority = item.priority
 		price = item.price
 		found = item.found
+		id = item.iD
 		
 		row = document.createElement('tr')
 		
 		inp = document.createElement('input')
 		inp.setAttribute("type","checkbox")
+		inp.setAttribute("onchange","removeUpdate("+id+")")
 		
 		
 		col = document.createElement("td")
