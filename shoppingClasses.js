@@ -10,7 +10,9 @@ class Item{
 		this.found = false
 		this.iD = id
 	}
-	
+	setPurchace(def = true){
+		this.found = def
+	}
 }
 class ShoppingList extends Array{
 	constructor(){
@@ -19,11 +21,17 @@ class ShoppingList extends Array{
 	add(item){
 		super.push(item)
 	}
+	
 	remove(num){
 		for (item of this){
 			if (item.iD===num){
-				super.splice(super.indexOf(item),1)
+				super.splice(super.indexOf(item),1)			
 			}
 		}
+	}
+	sortBy(trait){
+		super.sort(function(){
+			
+		})
 	}
 }
