@@ -1,6 +1,6 @@
 //THIS IS THE MODEL
 class Item{
-	constructor(name, qty, store, seciton, priority, price, id){
+	constructor(name, qty, store, section, priority, price, id){
 		this.name = name
 		this.qty = qty
 		this.store = store
