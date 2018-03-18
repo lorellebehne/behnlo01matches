@@ -16,11 +16,17 @@ function addUpdate(){
 	list.add(item)
 	updateTable(list)
 	count++
+	localStorage.setItem("shopList",JSON.stringify(list))
 }
+<<<<<<< HEAD
+
+=======
 //change this so it does the cross out thing
+>>>>>>> 45a8953c8d9b676516f1eba3131ad1b49525b60b
 function removeUpdate(num){
 	list.remove(num)
 	updateTable(list)
+	localStorage.setItem("shopList",JSON.stringify(list))
 }
 function sectionUpdate(){
 	buildSections()
@@ -35,6 +41,22 @@ function sortByHead(){
 //localStorage.setItem("some name here", object to set)
 //localStorage.getItem("the same name here")
 //localStorage.length ===0 then ignore the stuff
+<<<<<<< HEAD
+window.onload = function () {
+    if (localStorage.length>0){
+		let arr = JSON.parse(localStorage.getItem("shopList"))
+		for (let itm of arr){
+			console.log(itm)
+			console.log(itm.name)
+			item = new Item(itm.name, itm.qty, itm.store, itm.section, itm.priority, itm.price, count)
+			count += 1
+			list.add(item)
+		}
+		updateTable(list)
+	}
+}
+=======
+>>>>>>> 45a8953c8d9b676516f1eba3131ad1b49525b60b
 
 class LocalStorageSaver {
 	constructor(model, lsname){
