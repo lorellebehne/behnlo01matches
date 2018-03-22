@@ -16,13 +16,16 @@ function addUpdate(){
 	list.add(item)
 	updateTable(list)
 	count++
-	localStorage.setItem("shopList",JSON.stringify(list))
+	save()
 }
 
 function removeUpdate(num){
 	list.remove(num)
 	updateTable(list)
-	localStorage.setItem("shopList",JSON.stringify(list))
+	save()
+}
+function save(){
+	fetch("http://localhost:5001/saveList?lst="+JSON.stringify(list))
 }
 function sectionUpdate(){
 	buildSections()
@@ -39,16 +42,25 @@ function sortByHead(){
 //localStorage.length ===0 then ignore the stuff
 window.onload = function () {
     if (localStorage.length>0){
-		let arr = JSON.parse(localStorage.getItem("shopList"))
-		for (let itm of arr){
-			console.log(itm)
-			console.log(itm.name)
-			item = new Item(itm.name, itm.qty, itm.store, itm.section, itm.priority, itm.price, count)
-			count += 1
-			list.add(item)
-		}
-		updateTable(list)
+		fetch("http://localhost:5001/getList?")
+		.then(function(response){
+			console.log(response)
+			arr=JSON.parse(response)
+			for (let itm of arr){
+				console.log(itm)
+				console.log(itm.name)
+				item = new Item(itm.name, itm.qty, itm.store, itm.section, itm.priority, itm.price, count)
+				count += 1
+				list.add(item)
+			}
+			updateTable(list)
+		})
 	}
+}
+
+function load() {
+	let config = {}
+	let lst = document.getElementById("num1").value
 }
 
 class LocalStorageSaver {
